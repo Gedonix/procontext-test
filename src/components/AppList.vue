@@ -28,7 +28,6 @@ export default {
     data() {
         return {
             checked: false,
-            isFilled: false,
         }
     },
     methods: {

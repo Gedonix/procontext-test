@@ -15,11 +15,7 @@
 
 <script>
 export default {
-  props: ['inumber', 'number'],
-  data() {
-    return {          
-    }
-  },
+  props: ['inumber', 'number'],  
   methods: {
     toggle() {   
       this.$store.commit({
