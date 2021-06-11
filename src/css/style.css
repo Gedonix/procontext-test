@@ -121,7 +121,7 @@
     margin: 0 0 10px 0;
 }
 
-.checkbox_list input[type=checkbox] {
+.checkbox_list_input {
     -webkit-appearance: none;
     -moz-appearance: none;
     display: inline-block;
@@ -132,6 +132,18 @@
     vertical-align: top;
     outline: none;
     cursor: pointer;
+}
+
+.checkbox_list_close {
+    background: url(../assets/square-regular.svg) 0 0 no-repeat
+}
+
+.checkbox_list_open {
+    background: url(../assets/check-square-regular.svg) 0 0 no-repeat
+}
+
+.checkbox_list_minus {
+    background: url(../assets/minus-square-regular.svg) 0 0 no-repeat
 }
 
 .checkbox_item {

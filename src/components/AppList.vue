@@ -6,7 +6,7 @@
       <div>
         <label class="checkbox_list">
         <input type="checkbox" :value="checked" @input="toggle" 
-        :style="inputStyle"             
+        class="checkbox_list_input" :class="inputStyle"             
         /> List {{ number }}</label>
       </div>      
   </div>
@@ -43,11 +43,11 @@ export default {
     computed: { 
         inputStyle() {
             if(this.checked && this.checkedItems){
-                return "background: url(./assets/minus-square-regular.svg) 0 0 no-repeat"
+                return "checkbox_list_minus"
             } else if(this.checked){
-                return "background: url(./assets/check-square-regular.svg) 0 0 no-repeat"
+                return "checkbox_list_open"
             } else {
-                return "background: url(./assets/square-regular.svg) 0 0 no-repeat"
+                return "checkbox_list_close"
             }
         },
         countOfItems() {
