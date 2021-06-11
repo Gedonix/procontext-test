@@ -15,6 +15,7 @@
                     v-for="element in items.count"
                     :key="element"
                     :style="{ backgroundColor: items.color}"
+                    @click="delBlock(idx)"
                     >
                     </div>
                 </div>
@@ -22,10 +23,10 @@
         </div>
         <div v-else class="count_container">
             <div class="count_div"
-            v-for="element in unsorted"
-            :key="element"
+            v-for="(element, idx) in unsorted"
+            :key="idx"
             :style="{ backgroundColor: element}"
-            >
+            @click="delUnsort(element)">
             </div>
         </div> 
     </div>
@@ -38,27 +39,26 @@ export default {
     data() {
         return {
             isSorted: true,
-            unsorted: [],
         }
     },
     methods: {
         unsort() {
-            this.isSorted = !this.isSorted
-            let unsorted = []
-            this.pos.forEach(element => {
-                if (element.checked) {
-                    for (let i = 0; i < element.count; i++) {
-                        unsorted.push(element.color)
-                    }
-                }
+            this.isSorted = !this.isSorted            
+        },
+        delBlock(idx) {
+            this.$store.commit({
+                type: 'reduceCount',
+                number: this.number,
+                inumber: idx + 1
             })            
-            for (let i = 0; i < unsorted.length; i++){
-                let x = Math.floor(Math.random() * unsorted.length)
-                let tmp = unsorted[i]
-                unsorted[i] = unsorted[x]
-                unsorted[x] = tmp
-            }
-            this.unsorted = unsorted
+        },
+        delUnsort(color) {
+            //let inumber = this.pos.findIndex(i => i.color === color) + 1
+            this.$store.commit({
+                type: 'reduceCount',
+                number: this.number,
+                inumber: this.pos.findIndex(i => i.color === color) + 1
+            }) 
         }
     },
     computed: {
@@ -79,6 +79,23 @@ export default {
             }
             return apos
         },
+        unsorted() {
+            let unsorted = []
+            this.pos.forEach(element => {
+                if (element.checked) {
+                    for (let i = 0; i < element.count; i++) {
+                        unsorted.push(element.color)
+                    }
+                }
+            })            
+            for (let i = 0; i < unsorted.length; i++){
+                let x = Math.floor(Math.random() * unsorted.length)
+                let tmp = unsorted[i]
+                unsorted[i] = unsorted[x]
+                unsorted[x] = tmp
+            }
+            return unsorted
+        }
     }
 }
 </script>

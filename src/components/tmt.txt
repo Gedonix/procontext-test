@@ -1,1 +1,0 @@
-:value="checked" @input="toggle"

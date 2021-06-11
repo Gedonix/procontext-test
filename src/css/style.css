@@ -37,13 +37,8 @@
 }
 
 .angle {
-    margin-right: 15px;
-}
-
-#checkbox {
-    margin-right: 15px;
-    transform: scale(1.2);
-    border: 1px solid black;
+    width: 20px;
+    height: 20px;
 }
 
 .item_wrapper {
@@ -119,4 +114,27 @@
     height: 10px;
     margin-right: 2px;
     margin-bottom: 2px;
+}
+
+.checkbox_label {
+    display: block;
+    margin: 0 0 10px 0;
+}
+
+.checkbox_label input[type=checkbox] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    margin: 0 5px 0 0;
+    padding: 0;
+    vertical-align: top;
+    outline: none;
+    background: url(../assets/square-regular.svg) 0 0 no-repeat;
+    cursor: pointer;
+}
+
+.checkbox_label input[type=checkbox]:checked {
+    background-image: url(../assets/check-square-regular.svg);
 }

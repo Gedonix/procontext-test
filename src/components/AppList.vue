@@ -4,9 +4,9 @@
           <i :class="checked ? 'fas fa-angle-down' : 'fas fa-angle-right'"></i>         
       </div>
       <div>
-        <label>
-        <input type="checkbox" id="checkbox" :value="checked" @input="toggle"  />
-        List {{ number }}</label>
+        <label class="checkbox_label">
+        <input type="checkbox" :value="checked" @input="toggle"               
+        /> List {{ number }}</label>
       </div>      
   </div>
   <div class="item_wrapper" v-if="checked">
@@ -27,6 +27,7 @@ export default {
     data() {
         return {
             checked: false,
+            isFilled: false,
         }
     },
     methods: {
@@ -42,13 +43,13 @@ export default {
     computed: { 
         countOfItems() {
             return this.$store.getters.countOfItems
-        }
+        },
     },
     components: {
         Item
     },
     mounted() {
         this.$store.commit('registerList', this.number)
-    },    
+    },      
 }
 </script>

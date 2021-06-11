@@ -51,6 +51,15 @@ export default createStore({
                 }
             }
         },
+        reduceCount(state, pld) {
+            let c = state.Elements[pld.number][pld.inumber].count
+            state.Elements = {...state.Elements,
+                [pld.number]: {
+                    ...state.Elements[pld.number],
+                    [pld.inumber]: {...state.Elements[pld.number][pld.inumber], count: c - 1 }
+                }
+            }
+        }
     },
     getters: {
         countOfLists(state) {

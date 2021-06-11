@@ -1,8 +1,8 @@
 <template>
   <div class="item_entry">
       <div>
-        <label>
-        <input type="checkbox" id="checkbox" :checked="checked" @input="toggle"/>
+        <label class="checkbox_label">
+        <input type="checkbox" :checked="checked" @input="toggle"/>
         Item {{ inumber }}</label>
       </div>
       <div class="color_wrapper">
