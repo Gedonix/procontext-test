@@ -18,7 +18,7 @@ export default createStore({
         },
         registerList(state, pld) {
             state.Elements = {...state.Elements, [pld]: {} }
-            for (let i = 1; i < 5; i++) {
+            for (let i = 1; i < state.countOfLists; i++) {
                 state.Elements = {...state.Elements,
                     [pld]: {
                         ...state.Elements[pld],
@@ -74,12 +74,5 @@ export default createStore({
         getElements(state) {
             return state.Elements
         },
-        countOfActiveItem(state) {
-            state.checkedLists.forEach(element => {
-                let sum = 0
-                Object.entries(state.Elements[element]).forEach(i => i[1].checked === true ? sum++ : sum)
-                console.log(sum)
-            });
-        }
     }
 })
