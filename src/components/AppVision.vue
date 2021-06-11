@@ -53,7 +53,6 @@ export default {
             })            
         },
         delUnsort(color) {
-            //let inumber = this.pos.findIndex(i => i.color === color) + 1
             this.$store.commit({
                 type: 'reduceCount',
                 number: this.number,

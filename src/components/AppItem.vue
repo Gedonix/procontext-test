@@ -1,7 +1,7 @@
 <template>
   <div class="item_entry">
       <div>
-        <label class="checkbox_label">
+        <label class="checkbox_item">
         <input type="checkbox" :checked="checked" @input="toggle"/>
         Item {{ inumber }}</label>
       </div>

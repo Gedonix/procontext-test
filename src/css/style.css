@@ -116,12 +116,30 @@
     margin-bottom: 2px;
 }
 
-.checkbox_label {
+.checkbox_list {
     display: block;
     margin: 0 0 10px 0;
 }
 
-.checkbox_label input[type=checkbox] {
+.checkbox_list input[type=checkbox] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    margin: 0 5px 0 0;
+    padding: 0;
+    vertical-align: top;
+    outline: none;
+    cursor: pointer;
+}
+
+.checkbox_item {
+    display: block;
+    margin: 0 0 10px 0;
+}
+
+.checkbox_item input[type=checkbox] {
     -webkit-appearance: none;
     -moz-appearance: none;
     display: inline-block;
@@ -135,6 +153,6 @@
     cursor: pointer;
 }
 
-.checkbox_label input[type=checkbox]:checked {
+.checkbox_item input[type=checkbox]:checked {
     background-image: url(../assets/check-square-regular.svg);
 }

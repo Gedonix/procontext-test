@@ -7,6 +7,7 @@ export default createStore({
             countOfItems: 4,
             Elements: {},
             checkedLists: [],
+            checkedItems: [0],
             colors: ['#000000', '#FF0000', '#FFFF00', '#008000', '#0000FF']
         }
     },
@@ -18,7 +19,7 @@ export default createStore({
         },
         registerList(state, pld) {
             state.Elements = {...state.Elements, [pld]: {} }
-            for (let i = 1; i < state.countOfLists; i++) {
+            for (let i = 1; i < state.countOfItems + 1; i++) {
                 state.Elements = {...state.Elements,
                     [pld]: {
                         ...state.Elements[pld],
@@ -26,6 +27,7 @@ export default createStore({
                     }
                 }
             }
+            state.checkedItems.push(4)
         },
         toggle(state, pld) {
             state.Elements = {...state.Elements,
@@ -34,6 +36,7 @@ export default createStore({
                     [pld.inumber]: {...state.Elements[pld.number][pld.inumber], checked: pld.checked }
                 }
             }
+            pld.checked ? state.checkedItems[pld.number]++ : state.checkedItems[pld.number]--
         },
         changeColor(state, pld) {
             state.Elements = {...state.Elements,
@@ -70,6 +73,9 @@ export default createStore({
         },
         checkedLists(state) {
             return state.checkedLists
+        },
+        checkedItems(state) {
+            return state.checkedItems
         },
         getElements(state) {
             return state.Elements
